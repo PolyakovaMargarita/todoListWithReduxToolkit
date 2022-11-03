@@ -1,4 +1,42 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  gap: 0.5rem
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  height: 30px;
+  border: 1px solid #000;
+}
+.margin {
+  margin: 0 5px 0 5px;
+}
+.del {
+  color: red;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.del:hover {
+  font-size: large;
+}
+input:checked + span {
+  text-decoration: line-through;
 }
 

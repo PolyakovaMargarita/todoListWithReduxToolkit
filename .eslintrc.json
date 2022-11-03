@@ -33,7 +33,7 @@
     "computed-property-spacing": ["error", "always"],
     "arrow-body-style": ["error", "as-needed"],
     "eqeqeq": ["error", "always"],
-    "array-bracket-newline": ["error", { "minItems": 2 }],
+    "array-bracket-newline": ["error", { "minItems": 3 }],
     "block-spacing": ["error", "always"],
     "template-curly-spacing": ["error", "always"],
     "no-multi-spaces": "error",
