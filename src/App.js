@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewTodo, fetchTodos } from "./store/todoSlice";
+import { addTodo, fetchTodos } from "./store/todoSlice";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import "./App.css";
@@ -13,9 +13,9 @@ const App = () => {
   const dispatch = useDispatch();
 
 
-  const addTodo = () => {
+  const addTodoItem = () => {
     if (text.trim().length) {
-      dispatch(addNewTodo(text));
+      dispatch(addTodo(text));
       setText("");
     }
   };
@@ -30,7 +30,7 @@ const App = () => {
       <TodoInput
         text={text}
         handleInput={setText}
-        addTodo={addTodo}
+        addTodo={addTodoItem}
       />
 
       {status === "loading" && <h2>Loading...</h2>}

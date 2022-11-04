@@ -68,37 +68,38 @@ export const statusTodo = createAsyncThunk(
   }
 );
 
-export const addNewTodo = createAsyncThunk(
-  "todos/addNewTodo",
-  async function(title, {rejectWithValue, dispatch}) {
-    try {
-      const todo = {
-        title: title,
-        userId: 1,
-        completed: false
-      };
+//for response to server
+// export const addNewTodo = createAsyncThunk(
+//   "todos/addNewTodo",
+//   async function(title, {rejectWithValue, dispatch}) {
+//     try {
+//       const todo = {
+//         title: title,
+//         userId: 1,
+//         completed: false
+//       };
 
-      const response = await fetch("https://jsonplaceholder.typicode.com/todos", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(todo)
-      });
+//       const response = await fetch("https://jsonplaceholder.typicode.com/todos", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(todo)
+//       });
 
-      if (!response.ok) {
-        throw new Error("Can`t add todo in list");
-      }
+//       if (!response.ok) {
+//         throw new Error("Can`t add todo in list");
+//       }
 
-      const data = await response.json();
+//       const data = await response.json();
 
-      dispatch(addTodo(data));
+//       dispatch(addTodo(data));
 
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 const setError = (state, action) => {
   state.status = "rejected";
@@ -114,7 +115,15 @@ const todoSlice = createSlice({
   },
   reducers: {
     addTodo(state, action) {
-      state.todos.push(action.payload);
+      //for response to server
+      // state.todos.push(action.payload);
+      state.todos.push(
+        {
+          id: Date.now(),
+          title: action.payload,
+          completed: false
+        }
+      ); 
     },
     removeTodo(state, action) {
       state.todos = state.todos.filter(todo => todo.id !== action.payload);
@@ -135,11 +144,12 @@ const todoSlice = createSlice({
     },
     [ fetchTodos.rejected ]: setError,
     [ deleteTodo.rejected ]: setError,
-    [ statusTodo.rejected ]: setError,
-    [ addNewTodo.rejected ]: setError
+    [ statusTodo.rejected ]: setError
+    //for response to server
+    // [ addNewTodo.rejected ]: setError
   }
 });
 
-const {addTodo, removeTodo, todoCompleted} = todoSlice.actions;
+export const {addTodo, removeTodo, todoCompleted} = todoSlice.actions;
 
 export default todoSlice.reducer;
