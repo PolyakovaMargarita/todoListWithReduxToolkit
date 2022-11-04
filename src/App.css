@@ -1,6 +1,11 @@
+html, body {
+  background-color: rgb(37, 34, 34);
+}
+
 .App {
   text-align: center;
   display: flex;
+  margin-top: 50px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -13,7 +18,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
+  min-width: 600px;
   gap: 0.5rem
 }
 
@@ -21,15 +26,23 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 400px;
-  height: 30px;
-  border: 1px solid #000;
+  min-width: 650px;
+  min-height: 30px;
+  color: rgb(19, 7, 247);
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: rgb(223, 207, 207);
+  border: 2px solid rgb(149, 97, 234);
+}
+li:hover {
+  border: 3px solid rgb(149, 97, 234);
+  background-color: rgb(235, 183, 183);
 }
 .margin {
   margin: 0 5px 0 5px;
 }
 .del {
-  color: red;
+  color: rgb(249, 22, 22);
   margin-right: 10px;
   cursor: pointer;
 }
@@ -38,5 +51,32 @@ li {
 }
 input:checked + span {
   text-decoration: line-through;
+}
+.inputTodo {
+  width: 400px;
+  height: 25px;
+  font-size: 16px;
+  color: rgb(19, 7, 247);
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: rgb(223, 207, 207);
+  border: 2px solid rgb(149, 97, 234);
+}
+.inputTodo:hover {
+  border: 3px solid rgb(149, 97, 234);
+  background-color: rgb(235, 183, 183);
+}
+
+.button {
+  color: rgb(19, 7, 247);
+  margin-left: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: rgb(223, 207, 207);
+  border: 2px solid rgb(149, 97, 234);
+}
+.button:hover {
+  border: 3px solid rgb(149, 97, 234);
+  background-color: rgb(235, 183, 183);
 }
 
